@@ -15,7 +15,8 @@ public class MealMapper {
         return new MealResponse(
                 meal.getId(),
                 meal.getUserId(),
-                meal.getMealTime(),
+                meal.getMealName(),
+                meal.getDate(),
                 meal.getDishes().stream().map(dishMapper::toDto).collect(Collectors.toList())
         );
     }

@@ -1,9 +1,10 @@
 package example.com.dto;
 
+import example.com.models.MealName;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Data
@@ -11,6 +12,7 @@ import java.util.List;
 public class MealResponse {
     private Long id;
     private Long userId;
-    private LocalDateTime mealTime;
+    private MealName mealName;
+    private LocalDate date;
     private List<DishResponse> dishes;
 }

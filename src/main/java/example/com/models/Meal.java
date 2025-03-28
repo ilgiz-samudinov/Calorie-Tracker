@@ -3,7 +3,7 @@ package example.com.models;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -19,10 +19,11 @@ public class Meal{
     private Long id;
 
     private Long userId;
+    @Enumerated(EnumType.STRING)
+    private MealName mealName;
+    private LocalDate date;
 
-    private LocalDateTime mealTime;
-
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "meal_dishes",
             joinColumns = @JoinColumn(name = "meal_id"),
